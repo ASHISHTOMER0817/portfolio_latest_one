@@ -2,121 +2,386 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0"
-		/>
-		<title>Your Name - Developer</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Ashish Tomer - Software Engineer</title>
 		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
 			body {
-				font-family: Arial, sans-serif;
-				max-width: 800px;
-				margin: 40px auto;
-				padding: 0 20px;
-				line-height: 1.6;
-				color: #333;
+				font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				min-height: 100vh;
+				padding: 40px 20px;
+				color: #2d3748;
 			}
+
+			.container {
+				max-width: 900px;
+				margin: 0 auto;
+				background: white;
+				border-radius: 20px;
+				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+				overflow: hidden;
+			}
+
+			.header {
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				padding: 60px 40px;
+				color: white;
+				position: relative;
+				overflow: hidden;
+			}
+
+			.header::before {
+				content: '';
+				position: absolute;
+				top: -50%;
+				right: -50%;
+				width: 200%;
+				height: 200%;
+				background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+			}
+
+			.header-content {
+				position: relative;
+				z-index: 1;
+			}
+
 			h1 {
-				font-size: 32px;
+				font-size: 48px;
+				font-weight: 700;
 				margin-bottom: 10px;
+				letter-spacing: -1px;
 			}
+
+			.subtitle {
+				font-size: 20px;
+				opacity: 0.9;
+				font-weight: 300;
+			}
+
+			.download-btn {
+				display: inline-block;
+				margin-top: 20px;
+				padding: 12px 30px;
+				background: white;
+				color: #667eea;
+				border-radius: 30px;
+				font-weight: 600;
+				text-decoration: none;
+				transition: all 0.3s ease;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+			}
+
+			.download-btn:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+				background: #f7fafc;
+			}
+
+			.content {
+				padding: 40px;
+			}
+
+			section {
+				margin-bottom: 50px;
+			}
+
 			h2 {
-				font-size: 24px;
-				margin-top: 40px;
+				font-size: 28px;
+				margin-bottom: 20px;
+				color: #1a202c;
+				position: relative;
+				padding-bottom: 10px;
+			}
+
+			h2::after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 60px;
+				height: 3px;
+				background: linear-gradient(90deg, #667eea, #764ba2);
+				border-radius: 2px;
+			}
+
+			h5 {
+				font-size: 20px;
+				color: #2d3748;
+				margin-bottom: 8px;
+				font-weight: 600;
+			}
+
+			p {
+				line-height: 1.8;
+				color: #4a5568;
 				margin-bottom: 15px;
 			}
-			h5 {
-				font-size: 18px;
-				margin-top: 20px;
+
+			.project-card, .experience-card, .certificate-card {
+				background: #f7fafc;
+				padding: 25px;
+				border-radius: 12px;
+				margin-bottom: 20px;
+				border-left: 4px solid #667eea;
+				transition: all 0.3s ease;
+			}
+
+			.project-card:hover, .experience-card:hover, .certificate-card:hover {
+				transform: translateX(5px);
+				box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+			}
+
+			.project-links {
+				margin-top: 15px;
+			}
+
+			.project-links a {
+				display: inline-block;
+				margin-right: 15px;
+				padding: 8px 20px;
+				background: #667eea;
+				color: white;
+				border-radius: 20px;
+				font-size: 14px;
+				font-weight: 500;
+				text-decoration: none;
+				transition: all 0.3s ease;
+			}
+
+			.project-links a:hover {
+				background: #764ba2;
+				transform: translateY(-2px);
+			}
+
+			.date {
+				color: #718096;
+				font-size: 14px;
+				font-style: italic;
 				margin-bottom: 10px;
 			}
-			a {
-				color: #0066cc;
-				text-decoration: none;
-			}
-			a:hover {
-				text-decoration: underline;
-			}
+
 			ul {
 				padding-left: 20px;
+				margin-top: 10px;
 			}
+
 			li {
-				margin-bottom: 8px;
+				margin-bottom: 10px;
+				color: #4a5568;
+				line-height: 1.6;
 			}
-                  b {
-                        font-size: small;
-                  }
+
+			.skills-container {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 10px;
+			}
+
+			.skill-tag {
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				color: white;
+				padding: 8px 16px;
+				border-radius: 20px;
+				font-size: 14px;
+				font-weight: 500;
+			}
+
+			.contact-links {
+				display: flex;
+				gap: 20px;
+				flex-wrap: wrap;
+			}
+
+			.contact-links a {
+				display: inline-flex;
+				align-items: center;
+				padding: 12px 24px;
+				background: #f7fafc;
+				color: #667eea;
+				border-radius: 25px;
+				text-decoration: none;
+				font-weight: 600;
+				transition: all 0.3s ease;
+				border: 2px solid #667eea;
+			}
+
+			.contact-links a:hover {
+				background: #667eea;
+				color: white;
+				transform: translateY(-2px);
+			}
+
+			.certificate-card {
+				border-left-color: #764ba2;
+			}
+
+			.certificate-name {
+				font-weight: 600;
+				color: #2d3748;
+				font-size: 18px;
+				margin-bottom: 5px;
+			}
+
+			.certificate-issuer {
+				color: #718096;
+				font-size: 14px;
+				margin-bottom: 10px;
+			}
+
+			@media (max-width: 768px) {
+				.header {
+					padding: 40px 20px;
+				}
+
+				h1 {
+					font-size: 36px;
+				}
+
+				.content {
+					padding: 30px 20px;
+				}
+
+				.contact-links {
+					flex-direction: column;
+				}
+			}
 		</style>
 	</head>
 	<body>
-		<h1>Ashish Tomer</h1>
-		<p>Software Engineer</p>
+		<div class="container">
+			<div class="header">
+				<div class="header-content">
+					<h1>Ashish Tomer</h1>
+					<p class="subtitle">Software Engineer & Problem Solver</p>
+					<a href="/resume_latest_one.pdf" class="download-btn" download="resume.pdf">📥 Download Portfolio</a>
+				</div>
+			</div>
 
-		<h2>About Me</h2>
-		<p>
-I've always loved engineering, but I'll admit—I dodged math for far too long. Turns out, you can't 
-really call yourself an engineer without it. Machine learning pulled me back in, and now here I am, 
-deep into my MCA, finally learning what I should have embraced years ago. The surprising part? 
-I'm actually enjoying it. Who knew?		</p>
+			<div class="content">
+				<section>
+					<h2>About Me</h2>
+					<p>
+						I've always loved engineering, but I'll admit—I dodged math for far too long. Turns out, you can't 
+						really call yourself an engineer without it. Machine learning pulled me back in, and now here I am, 
+						deep into my MCA, finally learning what I should have embraced years ago. The surprising part? 
+						I'm actually enjoying it. Who knew?
+					</p>
+				</section>
 
-		<h2>Project</h2>
+				<section>
+					<h2>Projects</h2>
+					
+					<div class="project-card">
+						<h5>CardMitra</h5>
+						<p>
+							CardMitra – Bulk Buying with Card Discounts. Built a web platform that allows individuals to place 
+							bulk orders of electronics using their personal cards to unlock payment-based discounts on e-commerce 
+							platforms. The system facilitates retailer purchases while rewarding users with incentives, creating 
+							a mutually beneficial marketplace.
+						</p>
+						<div class="project-links">
+							<a href="https://github.com/ASHISHTOMER0817/CardMitra">GitHub</a>
+							<a href="https://www.cardmitra.in/">Live Demo</a>
+						</div>
+					</div>
+				</section>
 
-		<h5>CardMitra</h5>
-		<p>
-			CardMitra – Bulk Buying with Card Discounts Built a web
-			platform that allows individuals to place bulk orders of
-			electronics using their personal cards to unlock payment-based
-			discounts on e-commerce platforms. The system facilitates
-			retailer purchases while rewarding users with incentives,
-			creating a mutually beneficial marketplace.
-		</p>
-		<p>
-			<a href="https://github.com/ASHISHTOMER0817/CardMitra"
-				>GitHub</a
-			>
-			| <a href="https://www.cardmitra.in/">Live Demo</a>
-		</p>
+				<section>
+					<h2>Skills</h2>
+					<div class="skills-container">
+						<span class="skill-tag">JavaScript</span>
+						<span class="skill-tag">Python</span>
+						<span class="skill-tag">React</span>
+						<span class="skill-tag">Node.js</span>
+						<span class="skill-tag">Git</span>
+						<span class="skill-tag">Linux</span>
+						<span class="skill-tag">Next.js</span>
+						<span class="skill-tag">MongoDB</span>
+						<span class="skill-tag">AWS</span>
+					</div>
+				</section>
 
-		<!-- <h5>Another Project</h5>
-    <p>What this project does. Tech stack and any notable features.</p>
-    <p><a href="#">GitHub</a> | <a href="#">Live Demo</a></p>
-    
-    <h5>Third Project</h5>
-    <p>Brief description of the project and what problem it solves.</p>
-    <p><a href="#">GitHub</a></p> -->
+				<section>
+					<h2>Experience</h2>
 
-		<h2>Skills</h2>
-		<p>
-			JavaScript, Python, React, Node.js, Git, Linux, Next.js,
-			Mongodb, AWS
-		</p>
+					<div class="experience-card">
+						<h5>Junior Frontend Developer - Dentread</h5>
+						<p class="date">Aug 2023 - Jan 2024</p>
+						<ul>
+							<li>Translation of every English word to Greek was done by me using i18n library of Python.</li>
+							<li>Created 5 auxiliary pages for Next.js.</li>
+						</ul>
+					</div>
 
-		<h2>Experience</h2>
+					<div class="experience-card">
+						<h5>Freelancing</h5>
+						<p class="date">Jan 2024 - Aug 2024</p>
+						<p>
+							<strong>Worked on:</strong> CardMitra - Bulk Buying with Card Discounts. CardMitra is a web platform 
+							that enables individuals to place bulk orders of electronic products for retailers using their personal 
+							credit/debit cards to unlock payment-based discounts on e-commerce platforms. In return, users are 
+							reimbursed with a small incentive, making it a mutually beneficial system.
+						</p>
+					</div>
+				</section>
 
-		<h5>Junior frontend dev - Dentread</h5>
-		<p>2023 Aug - 2024 Jan</p>
-		<!-- <p> -->
-		<ul>
-			<li>
-				Translation of every english word to greek was done by
-				me using i18n library of python.
-			</li>
-			<li>Created 5 auxiliary pages for Next.js.</li>
-		</ul>
+				<section>
+					<h2>Certificates</h2>
+					
+					<div class="certificate-card">
+						<p class="certificate-name">AWS Certified Cloud Practitioner</p>
+						<p class="certificate-issuer">Amazon Web Services • 2024</p>
+						<p>Foundational understanding of AWS Cloud concepts, services, and terminology.</p>
+					</div>
 
-		<!-- </p> -->
+					<div class="certificate-card">
+						<p class="certificate-name">Full Stack Web Development</p>
+						<p class="certificate-issuer">Udemy • 2023</p>
+						<p>Comprehensive course covering MERN stack development and deployment.</p>
+					</div>
 
-		<h5>Freelancing</h5>
-		<p>2024 Jan - 2024 Aug</p>
-		<p>
-                 <b>Worked on:</b> CardMitra - Bulk Buying with Card Discounts CardMitra is a web platform that enables individuals to place bulk orders of electronic products for retailers using their personal credit/debit cards to unlock payment-based discounts on e-commerce platforms. In return, users are reimbursed with a small incentive, making it a mutually beneficial system.
-            </p>
+					<div class="certificate-card">
+						<p class="certificate-name">Machine Learning Specialization</p>
+						<p class="certificate-issuer">Coursera • 2024</p>
+						<p>Deep dive into supervised learning, neural networks, and ML best practices.</p>
+					</div>
+				</section>
 
-		<h2>Contact</h2>
-		<p>
-			<a href="mailto:ashish0817tomer@gmail.com">Email</a> |
-			<a href="https://github.com/ASHISHTOMER0817">GitHub</a> |
-			<a href="https://linkedin.com/in/ashish-tomer-08172004-thatsme">LinkedIn</a>
-		</p>
+				<section>
+					<h2>Contact</h2>
+					<div class="contact-links">
+						<a href="mailto:ashish0817tomer@gmail.com">✉️ Email</a>
+						<a href="https://github.com/ASHISHTOMER0817">💻 GitHub</a>
+						<a href="https://linkedin.com/in/ashish-tomer-08172004-thatsme">💼 LinkedIn</a>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<script>
+			function downloadPortfolio() {
+				// Create a downloadable version
+				const element = document.documentElement;
+
+
+				const opt = {
+					margin: 0.5,
+					filename: 'Ashish_Tomer_Portfolio.pdf',
+					image: { type: 'jpeg', quality: 0.98 },
+					html2canvas: { scale: 2 },
+					jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+				};
+
+				// Simple fallback: print to PDF
+				alert('Please use your browser\'s Print function (Ctrl+P / Cmd+P) and select "Save as PDF"');
+				window.print();
+			}
+		</script>
 	</body>
 </html>
